@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from "../logo.webp";
+import logo from "../logo.svg";
 import "./LoginWindow.css";
 import { API, API2 } from "../Accesos";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/16/solid";
@@ -70,7 +70,7 @@ const LoginWindow = ({ onLogin, setVendedor }) => {
   return (
     <div className="login-container">
       <div className="login-form flex items-center justify-center">
-        <img className="h-44 lg:h-60 logo" src={logo} alt="Logo" />
+        <img className="h-60 lg:h-80 logo" src={logo} alt="Logo" />
 
         <h1 className="title">Iniciar Sesión</h1>
         {viewLoader === true ? (

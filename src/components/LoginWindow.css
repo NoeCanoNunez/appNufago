@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 :root {
-  --main-color-inicial: #ff2a00;
-  --main-color-final: #ffa500;
+  --main-color-inicial: #114486;
+  --main-color-final: #03aa46;
+  --main-color-inicial2: #3d91ff44;
+  --main-color-final2: #00ff66;
   /* --main-color-inicial: #ff6b6b;
   --main-color-final: #ffa500; */
 }
@@ -23,7 +25,8 @@
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background: linear-gradient(90deg, var(--main-color-final2), var(--main-color-inicial2));
+  
 }
 
 .logo {
@@ -51,7 +54,7 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(to right, var(--main-color-inicial), var(--main-color-final));
+  background: linear-gradient(to right, rgb(30, 165, 0), rgb(0, 52, 104));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -142,7 +145,7 @@
 }
 
 .error-message {
-  color: red;
+  color: rgb(51, 0, 255);
   transition: all 0.5s ease;
   opacity: 1;
   animation: shake 0.5s; 

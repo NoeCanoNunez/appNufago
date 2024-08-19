@@ -16,7 +16,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-image: linear-gradient(to right, #ff6b81, #ff9a44);
+    background-image: linear-gradient(to right, #114486, #03aa46);
     margin: 0 5px;
     animation: bubbleAnimation 1.5s ease-in-out infinite;
   }
