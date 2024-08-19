@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Transition } from "@headlessui/react";
+import "./App.css";
+import LoginWindow from "./components/LoginWindow";
+import UIX from "./components/UIX";
 
 function App() {
+  const vendedorInicial = {
+    id: 0,
+    dni: "",
+    nombres: "",
+    apPaterno: "",
+    apMaterno: "",
+    sexo: "",
+    fechaNacimiento: "",
+    celular: "",
+    direccion: "",
+  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [vendedor, setVendedor] = useState(vendedorInicial);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="marble-background" className="App">
+      <Transition
+        show={isLoggedIn}
+        enter="transition-all duration-1000 transform ease-in-out"
+        enterFrom="opacity-0 scale-75"
+        enterTo="opacity-100 scale-100"
+        leave="transition-all duration-1000 transform ease-in-out"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-75"
+      >
+        <UIX vendedor={vendedor} />
+      </Transition>
+      <Transition
+        show={!isLoggedIn}
+        enter="transition-all duration-1000 transform ease-in-out"
+        enterFrom="opacity-0 scale-75"
+        enterTo="opacity-100 scale-100"
+        leave="transition-all duration-1000 transform ease-in-out"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-75"
+      >
+        <LoginWindow onLogin={handleLogin} setVendedor={setVendedor} />
+      </Transition>
     </div>
   );
 }
