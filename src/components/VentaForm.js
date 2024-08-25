@@ -13,7 +13,7 @@ const Formulario = ({ vendedor }) => {
   fechaVenta = fechaVenta.toISOString().split("T")[0];
 
   const clienteInicial = {
-    id: "",
+    id: 0,
     tipoDocumento: "dni",
     numeroDocumento: "",
     nameOrRS: "",

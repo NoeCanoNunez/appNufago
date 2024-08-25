@@ -70,7 +70,7 @@ const LoginWindow = ({ onLogin, setVendedor }) => {
   return (
     <div className="login-container">
       <div className="login-form flex items-center justify-center">
-        <img className="h-60 lg:h-80 logo" src={logo} alt="Logo" />
+        <img className="w-full my-20 mt-20 logo" src={logo} alt="Logo" />
 
         <h1 className="title">Iniciar Sesión</h1>
         {viewLoader === true ? (

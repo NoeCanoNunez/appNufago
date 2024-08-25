@@ -3,10 +3,8 @@
 :root {
   --main-color-inicial: #114486;
   --main-color-final: #03aa46;
-  --main-color-inicial2: #3d91ff44;
-  --main-color-final2: #00ff66;
-  /* --main-color-inicial: #ff6b6b;
-  --main-color-final: #ffa500; */
+  --main-color-inicial2: #ffffff2c;
+  --main-color-final2: #ffffffd5;
 }
 
 .login-container {
@@ -24,9 +22,11 @@
   align-items: center;
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(90deg, var(--main-color-final2), var(--main-color-inicial2));
-  
+  background: rgba(255, 255, 255, 0.2); /* Efecto vidrio */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.342);
+  backdrop-filter: blur(10px); /* Fondo borroso */
+  -webkit-backdrop-filter: blur(10px); /* Soporte para WebKit */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Bordes sutiles */
 }
 
 .logo {
@@ -35,7 +35,7 @@
 }
 
 .logo::after {
-  content: "";
+  content: icon;
   display: block;
   position: absolute;
   top: 0;
@@ -44,6 +44,7 @@
   height: 100%;
   background: linear-gradient(to right, var(--main-color-inicial), var(--main-color-final));
   mix-blend-mode: multiply;
+  background-color: #000;
 }
 
 .title {
@@ -54,7 +55,7 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(to right, rgb(30, 165, 0), rgb(0, 52, 104));
+  background: linear-gradient(to right, rgb(15, 48, 120), rgb(0, 78, 7));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -74,7 +75,8 @@
   border: none;
   background-color: #f5f5f5;
   font-size: 16px;
-  color: #333;
+  color: #065e3b;
+  font-weight:  300;
   transition: all 0.3s ease;
 }
 
@@ -145,11 +147,13 @@
 }
 
 .error-message {
-  color: rgb(51, 0, 255);
+  color: #37ffff;
+  font-weight: bold;
   transition: all 0.5s ease;
   opacity: 1;
   animation: shake 0.5s; 
   animation-iteration-count: 2;
+  margin-bottom: 10px;
 }
 
 .error-message.fade-out {

@@ -3,6 +3,7 @@ import { Transition } from "@headlessui/react";
 import "./App.css";
 import LoginWindow from "./components/LoginWindow";
 import UIX from "./components/UIX";
+import backgroundImage from "./city.jpg"; // Asegúrate de que la ruta sea correcta
 
 function App() {
   const vendedorInicial = {
@@ -24,7 +25,15 @@ function App() {
   };
 
   return (
-    <div id="marble-background" className="App">
+    <div
+      className="App"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+      }}
+    >
       <Transition
         show={isLoggedIn}
         enter="transition-all duration-1000 transform ease-in-out"
