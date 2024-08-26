@@ -30,8 +30,7 @@ const WindowsUIComponent = ({ vendedor }) => {
   const handleTabChange = (tab) => {
     if (!isMobile && isCollapsed) {
       setIsCollapsed(false);
-    }
-    ;
+    };
   };
 
   const handleOptionChange = (option) => {
@@ -56,37 +55,136 @@ const WindowsUIComponent = ({ vendedor }) => {
 
   const tabsConfig = [
     {
-      name: "RepartirInventario",
-      Icon: InboxArrowDownIcon,
+      name: "Home",
+      Icon: HomeIcon, // Cambia al icono que prefieras
       options: [
-        {name: "Repartir", Icon: InboxArrowDownIcon, component: <RepartirAlmacen />},
-        {name: "Buscar", Icon: ArrowUpOnSquareIcon, component: <MegaBuscador />}
+        { name: "Ir a Home", Icon: HomeIcon, component: null },
+        {
+          name: "Mi Cuenta",
+          Icon: UserIcon,
+          subOptions: [
+            { name: "Detalle de mis Pagos", Icon: MoneyIcon, component: <DetallePagos /> },
+            { name: "Pagar mi cuenta", Icon: CreditCardIcon, component: <PagarCuenta /> }
+          ]
+        },
+        { name: "Aprobaciones", Icon: CheckCircleIcon, component: <Aprobaciones /> },
+        { name: "Cambio Clave", Icon: KeyIcon, component: <CambioClave /> }
       ]
     },
     {
-      name: "Inventarios",
+      name: "Soporte",
+      Icon: SupportIcon,
+      options: [
+        { name: "Ver todos los soportes", Icon: ListBulletIcon, component: <VerSoportes /> },
+        { name: "Elevar a Sop. Supervisor Auranet", Icon: ArrowUpIcon, component: <ElevarSoporte /> }
+      ]
+    },
+    {
+      name: "Administración",
+      Icon: CogIcon,
+      options: [
+        { name: "Empresa", Icon: BuildingIcon, component: null },
+        {
+          name: "Opciones",
+          Icon: MenuIcon,
+          subOptions: [
+            { name: "General", Icon: ClipboardIcon, component: <General /> },
+            { name: "Recursos", Icon: UsersIcon, component: <Recursos /> },
+            { name: "Partidas", Icon: ArchiveBoxIcon, component: <Partidas /> },
+            { name: "Contabilidad", Icon: CurrencyDollarIcon, component: <Contabilidad /> },
+            { name: "Compras", Icon: ShoppingBagIcon, component: <Compras /> },
+            { name: "Costos", Icon: CalculatorIcon, component: <Costos /> },
+            { name: "Impresiones", Icon: PrinterIcon, component: <Impresiones /> },
+            { name: "Valores Predef", Icon: DocumentIcon, component: <ValoresPredef /> },
+            { name: "Fac. Electrónica", Icon: DocumentTextIcon, component: <FacElectronica /> },
+            { name: "Venta Inmobiliaria", Icon: HomeIcon, component: <VentaInmobiliaria /> },
+            { name: "Cobranza Clientes", Icon: CashIcon, component: <CobranzaClientes /> },
+            { name: "CC Integrales", Icon: BanknotesIcon, component: <CCIntegrales /> },
+            { name: "Opciones Ventas", Icon: TagIcon, component: <OpcionesVentas /> },
+            { name: "Opciones Ventas 2", Icon: TagIcon, component: <OpcionesVentas2 /> }
+          ]
+        },
+        {
+          name: "Usuarios",
+          Icon: UserGroupIcon,
+          subOptions: [
+            { name: "Aprobadores Convenios de Compra", Icon: DocumentCheckIcon, component: <AprobadoresConvenios /> },
+            { name: "Aprobadores", Icon: DocumentCheckIcon, component: <Aprobadores /> },
+            { name: "Docum. Tribu. Contabilidad", Icon: DocumentIcon, component: <DocumTribu /> },
+            { name: "Decimales", Icon: NumberIcon, component: <Decimales /> },
+            { name: "Auditoría", Icon: ShieldCheckIcon, component: <Auditoria /> }
+          ]
+        }
+      ]
+    },
+    {
+      name: "Tablas",
+      Icon: TableIcon,
+      options: [
+        { name: "Tablas Ventas Web", Icon: GlobeIcon, component: <TablasVentasWeb /> },
+        {
+          name: "Tablas Personas",
+          Icon: UserGroupIcon,
+          subOptions: [
+            { name: "Tipo de Sucursales", Icon: BuildingIcon, component: <TipoSucursales /> },
+            { name: "Autorizaciones de Bloqueo", Icon: LockClosedIcon, component: <AutorizacionesBloqueo /> }
+          ]
+        },
+        { name: "Tablas Recursos", Icon: UserGroupIcon, component: <TablasRecursos /> },
+        { name: "Tablas Partidas", Icon: ClipboardIcon, component: <TablasPartidas /> },
+        { name: "Tablas Otros", Icon: FolderIcon, component: <TablasOtros /> },
+        { name: "Tablas Contabilidad", Icon: CurrencyDollarIcon, component: <TablasContabilidad /> },
+        { name: "Tablas Utilidades", Icon: CogIcon, component: <TablasUtilidades /> },
+        { name: "Planillas", Icon: DocumentTextIcon, component: <Planillas /> }
+      ]
+    },
+    {
+      name: "Presupuesto",
+      Icon: CurrencyDollarIcon,
+      options: [
+        { name: "Presupuesto", Icon: ClipboardIcon, component: <Presupuesto /> },
+        { name: "Partidas", Icon: ArchiveBoxIcon, component: <Partidas /> },
+        {
+          name: "Inicio de Partida",
+          Icon: PlayIcon,
+          subOptions: [
+            { name: "Inicio Partida", Icon: PlayIcon, component: <InicioPartida /> },
+            { name: "Editar Inicio Partida", Icon: PencilIcon, component: <EditarInicioPartida /> }
+          ]
+        },
+        { name: "Informes", Icon: DocumentReportIcon, component: <Informes /> }
+      ]
+    },
+    {
+      name: "Compras",
       Icon: ShoppingBagIcon,
       options: [
-        {name: "InventarioGeneral", Icon: ShoppingBagIcon, component: <IngresarAlmacen />},
-        {name: "InventarioTienda", Icon: BoltIcon, component: <InventariosTienda />}
+        { name: "Solicitud de Recursos", Icon: ClipboardIcon, component: <SolicitudRecursos /> },
+        { name: "Solicitud de Cotización", Icon: DocumentTextIcon, component: <SolicitudCotizacion /> },
+        { name: "Orden de Compra", Icon: ShoppingCartIcon, component: <OrdenCompra /> },
+        { name: "Convenio de Compra", Icon: DocumentDuplicateIcon, component: <ConvenioCompra /> },
+        { name: "Pto. Pedido-Ordenado-Recibido", Icon: ArchiveBoxIcon, component: <PtoPedido /> },
+        {
+          name: "Gestión de Compras",
+          Icon: CogIcon,
+          subOptions: [
+            { name: "Informes", Icon: DocumentReportIcon, component: <InformesCompras /> },
+            { name: "Informes por pantalla", Icon: DesktopComputerIcon, component: <InformesPantalla /> }
+          ]
+        },
+        {
+          name: "Utilidades",
+          Icon: WrenchIcon,
+          subOptions: [
+            { name: "Orden de Compra Rendición", Icon: DocumentCheckIcon, component: <OrdenCompraRendicion /> },
+            { name: "Ordenes de compra empresa", Icon: ShoppingBagIcon, component: <OrdenesCompraEmpresa /> }
+          ]
+        }
       ]
-    },
-    {
-      name: "RegistrarVentas",
-      Icon: BookOpenIcon,
-      options: [
-        {name: "RegistrarVenta", Icon: BookOpenIcon, component: <VentaForm vendedor={vendedor} />},
-        {name: "RegistrarUsuario", Icon: UserGroupIcon, component: <UsersForm />}
-      ]
-    },
-    {
-      name: "ListarVentas",
-      Icon: ArchiveBoxIcon,
-      options: [
-        {name: "ListarVenta", Icon: ArchiveBoxIcon, component: vendedor.rol === "ADMINISTRATIVO" ? <MostrarVentas /> : <MostrarVentaVendedor vendedor={vendedor} />}
-      ]
-    },
+    }
   ];
+  
+  
 
   return (
     <div className="flex h-screen bg-gray-200/5">
