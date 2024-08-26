@@ -17,6 +17,8 @@ const Options = ({
     // Abrir el menú si alguna de sus opciones está activa
     if (options.some(option => option.name === activeOption?.name)) {
       setIsOpen(true);
+    } else {
+      setIsOpen(false)
     }
   }, [activeOption, options]);
 
@@ -32,7 +34,7 @@ const Options = ({
   return (
     <div className="mb-2">
       <div
-        className={`mt-4 flex items-center justify-between mx-2 py-2 px-2 rounded-md cursor-pointer transition-all duration-300 ${
+        className={`text-xs md:text-sm flex items-center justify-between mx-2 px-2 rounded-md cursor-pointer transition-all duration-1000 ${
           isActive
           ? `bg-white/50 rounded-[50px]`
           : `text-white/80`}
@@ -45,12 +47,12 @@ const Options = ({
         </div>
         {!isCollapsed && (
           <ChevronDownIcon
-            className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'transform rotate-180' : ''}`}
+            className={`w-4 h-4 transition-transform duration-1000 ${isOpen ? 'transform rotate-180' : ''}`}
           />
         )}
       </div>
       {isOpen && !isCollapsed && (
-        <div className="mt-1 ml-6 space-y-1">
+        <div className="mt-1 ml-6 text-xs md:text-sm/2">
           {options.map((option) => (
             <button
             key={option.name}
@@ -63,7 +65,7 @@ const Options = ({
               hover:bg-white/20
             `}
           >
-            <option.Icon className="w-1 h-1 mr-2" />
+            <option.Icon className="w-4 h-4 mr-2" />
             <span>{option.name}</span>
           </button>
           ))}
